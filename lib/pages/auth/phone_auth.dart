@@ -42,8 +42,16 @@ class _PhoneAuthState extends State<PhoneAuth> {
               ),
               SizedBox(height: 20),
               GestureDetector(
-                onTap: () {
-                  Get.to(CodeAuth());
+                onTap: () async {
+                  authController
+                      .phoneAuth(phoneNum: phoneInput.text)
+                      .then((value) => {
+                            Get.to(
+                              CodeAuth(
+                                phoneNum: phoneInput.text,
+                              ),
+                            ),
+                          });
                 },
                 child: Container(
                   width: double.infinity,

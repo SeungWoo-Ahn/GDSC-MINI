@@ -2,18 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:gdsc_mini_project/common/color.dart';
 import 'package:gdsc_mini_project/common/dimen.dart';
 import 'package:gdsc_mini_project/common/string.dart';
+import 'package:gdsc_mini_project/controller/auth_controller.dart';
 import 'package:gdsc_mini_project/pages/home.dart';
 import 'package:get/get.dart';
 
-class CodeAuth extends StatefulWidget {
-  const CodeAuth({super.key});
+class CodeAuth extends StatelessWidget {
+  CodeAuth({
+    super.key,
+    required this.phoneNum,
+  });
 
-  @override
-  State<CodeAuth> createState() => _CodeAuthState();
-}
+  final String phoneNum;
 
-class _CodeAuthState extends State<CodeAuth> {
   final TextEditingController codeInput = TextEditingController();
+  AuthController authController = Get.find<AuthController>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,8 +42,16 @@ class _CodeAuthState extends State<CodeAuth> {
               ),
               SizedBox(height: 20),
               GestureDetector(
-                onTap: () {
-                  Get.offAll(HomeScreen());
+                onTap: () async {
+                  final result = await authController.codeAuth(
+                    phoneNum: phoneNum,
+                    code: codeInput.text,
+                  );
+                  if (result) {
+                    Get.offAll(HomeScreen());
+                  } else {
+                    Get.snackbar("err", str_code_auth_err);
+                  }
                 },
                 child: Container(
                   width: double.infinity,

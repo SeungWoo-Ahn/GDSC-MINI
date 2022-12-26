@@ -40,6 +40,8 @@ dependencies:
   dio: ^4.0.6
   get_storage: ^2.0.3
   json_annotation: ^4.7.0
+  json_serializable: ^6.5.4
+  build_runner: ^2.3.3
 
 dev_dependencies:
   flutter_test:
