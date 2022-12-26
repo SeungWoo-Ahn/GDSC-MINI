@@ -3,6 +3,7 @@ import 'package:gdsc_mini_project/common/color.dart';
 import 'package:gdsc_mini_project/common/dimen.dart';
 import 'package:gdsc_mini_project/common/string.dart';
 import 'package:gdsc_mini_project/controller/auth_controller.dart';
+import 'package:gdsc_mini_project/pages/auth/code_auth.dart';
 import 'package:get/get.dart';
 
 class PhoneAuth extends StatefulWidget {
@@ -41,7 +42,9 @@ class _PhoneAuthState extends State<PhoneAuth> {
               ),
               SizedBox(height: 20),
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Get.to(CodeAuth());
+                },
                 child: Container(
                   width: double.infinity,
                   padding: buttonPadding,
