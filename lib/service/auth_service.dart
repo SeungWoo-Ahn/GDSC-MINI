@@ -30,7 +30,7 @@ class AuthService {
           "auth": CodeAuthModel(phoneNum: phoneNum, code: code).toJson(),
         },
       );
-      return response.data;
+      return response.data["result"]["verify"] == "ok" ? true : false;
     } catch (e) {
       return false;
     }
