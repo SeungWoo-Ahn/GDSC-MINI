@@ -9,7 +9,7 @@ class AuthController extends GetxController {
   bool get isSignUp => _isSignUp.value;
 
   //번호 인증
-  void phoneAuth({required String phoneNumber}) async {
+  Future<void> phoneAuth({required String phoneNumber}) async {
     await ApiRepo().phoneAuth(phoneNumber: phoneNumber);
   }
 
