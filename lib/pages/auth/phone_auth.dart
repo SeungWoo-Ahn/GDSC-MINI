@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:gdsc_mini_project/common/color.dart';
 import 'package:gdsc_mini_project/common/dimen.dart';
 import 'package:gdsc_mini_project/common/string.dart';
-import 'package:gdsc_mini_project/controller/auth_controller.dart';
 import 'package:gdsc_mini_project/pages/auth/code_auth.dart';
 import 'package:get/get.dart';
 
@@ -14,7 +13,6 @@ class PhoneAuth extends StatefulWidget {
 }
 
 class _PhoneAuthState extends State<PhoneAuth> {
-  AuthController authController = Get.put(AuthController());
   final TextEditingController phoneInput = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -42,17 +40,7 @@ class _PhoneAuthState extends State<PhoneAuth> {
               ),
               SizedBox(height: 20),
               GestureDetector(
-                onTap: () async {
-                  authController
-                      .phoneAuth(phoneNum: phoneInput.text)
-                      .then((value) => {
-                            Get.to(
-                              CodeAuth(
-                                phoneNum: phoneInput.text,
-                              ),
-                            ),
-                          });
-                },
+                onTap: () async {},
                 child: Container(
                   width: double.infinity,
                   padding: buttonPadding,

@@ -1,19 +1,17 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'code_auth_model.dart';
+part of 'code_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-CodeAuthModel _$CodeAuthModelFromJson(Map<String, dynamic> json) =>
-    CodeAuthModel(
-      phoneNum: json['phone_num'] as String,
+CodeModel _$CodeModelFromJson(Map<String, dynamic> json) => CodeModel(
+      phoneNumber: json['phoneNumber'] as String,
       code: json['code'] as String,
     );
 
-Map<String, dynamic> _$CodeAuthModelToJson(CodeAuthModel instance) =>
-    <String, dynamic>{
-      'phone_num': instance.phoneNum,
+Map<String, dynamic> _$CodeModelToJson(CodeModel instance) => <String, dynamic>{
+      'phoneNumber': instance.phoneNumber,
       'code': instance.code,
     };
