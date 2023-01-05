@@ -47,7 +47,7 @@ class _PhoneAuthState extends State<PhoneAuth> {
                       .phoneAuth(phoneNumber: phoneInput.text)
                       .then((value) => {
                             Get.to(
-                              CodeAuth(phoneNum: phoneInput.text),
+                              () => CodeAuth(phoneNumber: phoneInput.text),
                             )
                           });
                 },

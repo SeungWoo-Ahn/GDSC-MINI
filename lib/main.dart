@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gdsc_mini_project/pages/auth/phone_auth.dart';
 import 'package:get/get.dart';
 
-void main() async {
+void main() {
   runApp(App());
 }
 

@@ -1,3 +1,3 @@
 class Api {
-  static const baseUrl = "http://127.0.0.1/";
+  static const baseUrl = "http://10.0.2.2:3000/";
 }
