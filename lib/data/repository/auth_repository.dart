@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:gdsc_mini_project/data/network/api/auth/auth_api.dart';
-import 'package:gdsc_mini_project/api/util/token_util.dart';
+import 'package:gdsc_mini_project/util/token_util.dart';
 import 'package:gdsc_mini_project/data/network/api/constant/token.dart';
 
 import '../model/response/signup_response.dart';

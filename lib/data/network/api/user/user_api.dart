@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:gdsc_mini_project/api/util/token_util.dart';
+import 'package:gdsc_mini_project/util/token_util.dart';
 
 import '../constant/token.dart';
 import '../../dio_client.dart';
