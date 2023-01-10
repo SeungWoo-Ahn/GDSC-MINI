@@ -1,5 +1,6 @@
-import 'package:gdsc_mini_project/model/user_model.dart';
 import 'package:json_annotation/json_annotation.dart';
+
+import '../user_model.dart';
 
 part 'get_user_response.g.dart';
 
