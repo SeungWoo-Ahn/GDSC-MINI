@@ -3,7 +3,7 @@ import 'package:gdsc_mini_project/common/color.dart';
 import 'package:gdsc_mini_project/common/dimen.dart';
 import 'package:gdsc_mini_project/common/string.dart';
 import 'package:gdsc_mini_project/controller/auth_controller.dart';
-import 'package:gdsc_mini_project/pages/home.dart';
+import 'package:gdsc_mini_project/pages/auth/signup_screen.dart';
 import 'package:get/get.dart';
 
 class CodeAuth extends StatelessWidget {
@@ -44,7 +44,19 @@ class CodeAuth extends StatelessWidget {
               ),
               SizedBox(height: 20),
               GestureDetector(
-                onTap: () async {},
+                onTap: () async {
+                  if (await authController.checkCode(
+                      phoneNumber: phoneNumber, code: codeInput.text)) {
+                    if (await authController.checkSignedUp(
+                        phoneNumber: phoneNumber)) {
+                    } else {
+                      Get.to(SignupScreen(
+                          phoneNumber: phoneNumber, code: codeInput.text));
+                    }
+                  } else {
+                    Get.snackbar("code err", str_code_auth_err);
+                  }
+                },
                 child: Container(
                   width: double.infinity,
                   padding: buttonPadding,

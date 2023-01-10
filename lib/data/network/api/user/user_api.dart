@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:gdsc_mini_project/util/token_util.dart';
 
-import '../constant/token.dart';
 import '../../dio_client.dart';
 import '../constant/end_points.dart';
+import '../constant/token.dart';
 
 class UserApi with TokenUtil {
   final DioClient dioClient;

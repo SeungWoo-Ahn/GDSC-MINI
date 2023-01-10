@@ -19,7 +19,7 @@ class AuthApi {
       final Response response = await dioClient.post(
         Endpoints.authorization,
         data: {
-          "auth": {PhoneRequest(phoneNumber: phoneNumber).toJson()}
+          "auth": PhoneRequest(phoneNumber: phoneNumber).toJson(),
         },
       );
       return response;
@@ -35,7 +35,7 @@ class AuthApi {
       final Response response = await dioClient.get(
         Endpoints.authorization,
         queryParameters: {
-          "auth": {CodeRequest(phoneNumber: phoneNumber, code: code).toJson()}
+          "auth": CodeRequest(phoneNumber: phoneNumber, code: code).toJson()
         },
       );
       return response;

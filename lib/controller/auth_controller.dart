@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:gdsc_mini_project/data/repository/auth_repository.dart';
 import 'package:gdsc_mini_project/di/service_locator.dart';
 import 'package:get/get.dart';

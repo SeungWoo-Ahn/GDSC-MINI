@@ -1,8 +1,8 @@
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
-import 'package:gdsc_mini_project/data/network/api/user/user_api.dart';
 
+import '../network/api/user/user_api.dart';
 import '../model/response/get_user_response.dart';
 import '../model/user_model.dart';
 import '../network/dio_exception.dart';
