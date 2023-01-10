@@ -44,23 +44,7 @@ class CodeAuth extends StatelessWidget {
               ),
               SizedBox(height: 20),
               GestureDetector(
-                onTap: () async {
-                  // 인증번호 맞는지 확인
-                  if (await authController.codeAuth(
-                      phoneNumber: phoneNumber, code: codeInput.text)) {
-                    //가입된 계정인지 확인
-                    if (await authController.checkSignUp(
-                        phoneNumber: phoneNumber)) {
-                      Get.offAll(HomeScreen());
-                    }
-                    //가입이 안되있으면
-                    else {
-                      Get.snackbar("Err", str_signup_need_err);
-                    }
-                  } else {
-                    Get.snackbar("Err", str_code_auth_err);
-                  }
-                },
+                onTap: () async {},
                 child: Container(
                   width: double.infinity,
                   padding: buttonPadding,
