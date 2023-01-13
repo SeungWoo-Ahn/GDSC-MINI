@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:gdsc_mini_project/pages/home.dart';
 import 'package:get/get.dart';
@@ -40,6 +42,9 @@ class _SignupScreenState extends State<SignupScreen> {
     super.initState();
     phoneInput.text = phoneNumber.toString();
     codeInput.text = code.toString();
+    String phoneStr = phoneInput.text;
+    String codeStr = codeInput.text;
+    log("$phoneStr , $codeStr");
   }
 
   @override

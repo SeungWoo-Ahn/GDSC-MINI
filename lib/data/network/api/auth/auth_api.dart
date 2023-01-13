@@ -19,7 +19,7 @@ class AuthApi {
       final Response response = await dioClient.post(
         Endpoints.authorization,
         data: {
-          "auth": PhoneRequest(phoneNumber: phoneNumber).toJson(),
+          "auth": PhoneRequest(phone: phoneNumber).toJson(),
         },
       );
       return response;
@@ -35,7 +35,7 @@ class AuthApi {
       final Response response = await dioClient.get(
         Endpoints.authorization,
         queryParameters: {
-          "auth": CodeRequest(phoneNumber: phoneNumber, code: code).toJson()
+          "auth": CodeRequest(phone: phoneNumber, code: code).toJson()
         },
       );
       return response;
@@ -50,7 +50,7 @@ class AuthApi {
       final Response response = await dioClient.post(
         Endpoints.checkSignedUp,
         data: {
-          "auth": PhoneRequest(phoneNumber: phoneNumber).toJson(),
+          "auth": PhoneRequest(phone: phoneNumber).toJson(),
         },
       );
       return response;
@@ -78,6 +78,28 @@ class AuthApi {
           "auth": SignupRequest(termsAcceptedAt: DateTime.now()).toJson(),
         },
       );
+      return response;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Future<Response> login({
+    required String phoneNumber,
+    required String code,
+  }) async {
+    Codec<String, String> stringToBase64 = utf8.fuse(base64);
+    String serialized = stringToBase64.encode("$phoneNumber:$code");
+    try {
+      final Response response = await dioClient.post(
+        Endpoints.login,
+        options: Options(
+          headers: {
+            "Authorization": "Basic $serialized",
+          },
+        ),
+      );
+
       return response;
     } catch (e) {
       rethrow;

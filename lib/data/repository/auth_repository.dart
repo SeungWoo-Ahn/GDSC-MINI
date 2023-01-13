@@ -34,7 +34,7 @@ class AuthRepository with TokenUtil {
     try {
       final response =
           await authApi.codeAuth(phoneNumber: phoneNumber, code: code);
-      bool result = response.data["result"]["code"] == code;
+      bool result = response.data["result"]["verify"] == "ok";
       log("코드 일치 여부: $result");
       return result;
     } on DioError catch (e) {
@@ -64,6 +64,27 @@ class AuthRepository with TokenUtil {
     try {
       final response =
           await authApi.signUp(phoneNumber: phoneNumber, code: code);
+
+      final tokenResult = SignupResponse.fromJson(response.data["token"]);
+
+      saveToken(ACCESS_TOKEN_KEY, tokenResult.accessToken);
+      saveToken(REFRESH_TOKEN_KEY, tokenResult.refreshToken);
+
+      return true;
+    } on DioError catch (e) {
+      final errorMessage = DioExceptions.fromDioError(e).toString();
+      throw errorMessage;
+    }
+  }
+
+  //로그인 하기
+  Future<bool> loginRequest({
+    required String phoneNumber,
+    required String code,
+  }) async {
+    try {
+      final response =
+          await authApi.login(phoneNumber: phoneNumber, code: code);
 
       final tokenResult = SignupResponse.fromJson(response.data["token"]);
 

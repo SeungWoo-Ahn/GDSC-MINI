@@ -4,8 +4,8 @@ part 'code_request.g.dart';
 
 @JsonSerializable()
 class CodeRequest {
-  CodeRequest({required this.phoneNumber, required this.code});
-  String phoneNumber;
+  CodeRequest({required this.phone, required this.code});
+  String phone;
   String code;
 
   factory CodeRequest.fromJson(Map<String, dynamic> json) =>

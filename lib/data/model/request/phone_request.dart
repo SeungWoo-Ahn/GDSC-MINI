@@ -5,9 +5,9 @@ part 'phone_request.g.dart';
 @JsonSerializable()
 class PhoneRequest {
   PhoneRequest({
-    required this.phoneNumber,
+    required this.phone,
   });
-  String phoneNumber;
+  String phone;
 
   factory PhoneRequest.fromJson(Map<String, dynamic> json) =>
       _$PhoneRequestFromJson(json);

@@ -1,9 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:gdsc_mini_project/data/repository/auth_repository.dart';
 import 'package:gdsc_mini_project/di/service_locator.dart';
+import 'package:gdsc_mini_project/util/token_util.dart';
 import 'package:get/get.dart';
 
-class AuthController extends GetxController {
+class AuthController extends GetxController with TokenUtil {
   final authRepository = getIt.get<AuthRepository>();
 
   Future<bool> getCode({required String phoneNumber}) async {
@@ -35,6 +35,16 @@ class AuthController extends GetxController {
   }) async {
     final result =
         authRepository.signupRequest(phoneNumber: phoneNumber, code: code);
+
+    return result;
+  }
+
+  Future<bool> login({
+    required String phoneNumber,
+    required String code,
+  }) async {
+    final result =
+        authRepository.loginRequest(phoneNumber: phoneNumber, code: code);
 
     return result;
   }
