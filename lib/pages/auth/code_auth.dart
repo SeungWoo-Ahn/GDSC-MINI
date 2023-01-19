@@ -3,7 +3,7 @@ import 'package:gdsc_mini_project/common/color.dart';
 import 'package:gdsc_mini_project/common/dimen.dart';
 import 'package:gdsc_mini_project/common/string.dart';
 import 'package:gdsc_mini_project/controller/auth_controller.dart';
-import 'package:gdsc_mini_project/pages/home.dart';
+import 'package:gdsc_mini_project/pages/auth/signup_screen.dart';
 import 'package:get/get.dart';
 
 class CodeAuth extends StatelessWidget {
@@ -45,20 +45,16 @@ class CodeAuth extends StatelessWidget {
               SizedBox(height: 20),
               GestureDetector(
                 onTap: () async {
-                  // 인증번호 맞는지 확인
-                  if (await authController.codeAuth(
+                  if (await authController.checkCode(
                       phoneNumber: phoneNumber, code: codeInput.text)) {
-                    //가입된 계정인지 확인
-                    if (await authController.checkSignUp(
+                    if (await authController.checkSignedUp(
                         phoneNumber: phoneNumber)) {
-                      Get.offAll(HomeScreen());
-                    }
-                    //가입이 안되있으면
-                    else {
-                      Get.snackbar("Err", str_signup_need_err);
+                    } else {
+                      Get.to(SignupScreen(
+                          phoneNumber: phoneNumber, code: codeInput.text));
                     }
                   } else {
-                    Get.snackbar("Err", str_code_auth_err);
+                    Get.snackbar("code err", str_code_auth_err);
                   }
                 },
                 child: Container(

@@ -1,16 +1,18 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'phone_model.dart';
+part of 'code_request.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-PhoneModel _$PhoneModelFromJson(Map<String, dynamic> json) => PhoneModel(
+CodeRequest _$CodeRequestFromJson(Map<String, dynamic> json) => CodeRequest(
       phoneNumber: json['phoneNumber'] as String,
+      code: json['code'] as String,
     );
 
-Map<String, dynamic> _$PhoneModelToJson(PhoneModel instance) =>
+Map<String, dynamic> _$CodeRequestToJson(CodeRequest instance) =>
     <String, dynamic>{
       'phoneNumber': instance.phoneNumber,
+      'code': instance.code,
     };

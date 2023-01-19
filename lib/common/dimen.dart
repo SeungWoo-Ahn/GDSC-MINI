@@ -8,6 +8,9 @@ EdgeInsets buttonPadding =
 TextStyle titleStyle =
     const TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: black);
 
+TextStyle contentStyle =
+    const TextStyle(fontSize: 16, fontWeight: FontWeight.w300, color: black);
+
 TextStyle buttonStyle =
     const TextStyle(fontSize: 14, fontWeight: FontWeight.w200, color: white);
 
