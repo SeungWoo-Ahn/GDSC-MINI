@@ -7,10 +7,10 @@ part of 'phone_request.dart';
 // **************************************************************************
 
 PhoneRequest _$PhoneRequestFromJson(Map<String, dynamic> json) => PhoneRequest(
-      phoneNumber: json['phoneNumber'] as String,
+      phone: json['phone'] as String,
     );
 
 Map<String, dynamic> _$PhoneRequestToJson(PhoneRequest instance) =>
     <String, dynamic>{
-      'phoneNumber': instance.phoneNumber,
+      'phone': instance.phone,
     };

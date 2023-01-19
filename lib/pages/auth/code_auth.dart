@@ -4,6 +4,7 @@ import 'package:gdsc_mini_project/common/dimen.dart';
 import 'package:gdsc_mini_project/common/string.dart';
 import 'package:gdsc_mini_project/controller/auth_controller.dart';
 import 'package:gdsc_mini_project/pages/auth/signup_screen.dart';
+import 'package:gdsc_mini_project/pages/home.dart';
 import 'package:get/get.dart';
 
 class CodeAuth extends StatelessWidget {
@@ -49,8 +50,9 @@ class CodeAuth extends StatelessWidget {
                       phoneNumber: phoneNumber, code: codeInput.text)) {
                     if (await authController.checkSignedUp(
                         phoneNumber: phoneNumber)) {
+                      Get.to(() => HomeScreen());
                     } else {
-                      Get.to(SignupScreen(
+                      Get.to(() => SignupScreen(
                           phoneNumber: phoneNumber, code: codeInput.text));
                     }
                   } else {
