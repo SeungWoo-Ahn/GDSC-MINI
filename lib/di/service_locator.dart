@@ -1,8 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:gdsc_mini_project/controller/auth_controller.dart';
+import 'package:gdsc_mini_project/controller/post_controller.dart';
 import 'package:gdsc_mini_project/controller/user_controller.dart';
 import 'package:gdsc_mini_project/data/network/api/auth/auth_api.dart';
+import 'package:gdsc_mini_project/data/network/api/poset/post_api.dart';
 import 'package:gdsc_mini_project/data/repository/auth_repository.dart';
+import 'package:gdsc_mini_project/data/repository/post_repository.dart';
 import 'package:get_it/get_it.dart';
 
 import '../data/network/api/user/user_api.dart';
@@ -24,4 +27,9 @@ Future<void> setup() async {
   getIt.registerSingleton(UserRepository(getIt.get<UserApi>()));
 
   getIt.registerSingleton(UserController());
+
+  getIt.registerSingleton(PostApi(dioClient: getIt<DioClient>()));
+  getIt.registerSingleton(PostRepository(getIt.get<PostApi>()));
+
+  getIt.registerSingleton(PostController());
 }

@@ -1,9 +1,8 @@
 import 'package:gdsc_mini_project/data/repository/auth_repository.dart';
 import 'package:gdsc_mini_project/di/service_locator.dart';
-import 'package:gdsc_mini_project/util/token_util.dart';
 import 'package:get/get.dart';
 
-class AuthController extends GetxController with TokenUtil {
+class AuthController extends GetxController {
   final authRepository = getIt.get<AuthRepository>();
 
   Future<bool> getCode({required String phoneNumber}) async {
