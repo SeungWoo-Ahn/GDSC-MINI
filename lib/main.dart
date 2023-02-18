@@ -7,10 +7,10 @@ import 'package:get_storage/get_storage.dart';
 void main() async {
   setup();
   await GetStorage.init();
-  runApp(_App());
+  runApp(App());
 }
 
-class _App extends StatelessWidget {
+class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const GetMaterialApp(
